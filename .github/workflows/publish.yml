@@ -1,8 +1,12 @@
 name: Publish
 
-# Publish latest on main, version on releases. 
+# On main: run only after CI succeeds. Releases / manual dispatch publish directly.
 on:
-  push:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
     branches:
       - main
   release:
@@ -12,6 +16,7 @@ on:
 
 jobs:
   publish:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow_ref }}-${{ github.job }}
@@ -22,11 +27,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Set up Node.js LTS
+      - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
           node-version: 26

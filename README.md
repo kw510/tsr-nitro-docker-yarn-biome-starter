@@ -42,7 +42,7 @@ docker build -t my-app .
 docker run --rm -p 3000:3000 my-app
 ```
 
-On pushes to `main` and on GitHub Releases, the Publish workflow builds the app and pushes an image to `ghcr.io/<owner>/<repo>`.
+On successful CI for `main`, and on GitHub Releases / manual dispatch, the Publish workflow builds the app and pushes an image to `ghcr.io/<owner>/<repo>`.
 
 ## Styling
 
