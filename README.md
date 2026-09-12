@@ -1,21 +1,48 @@
-Welcome to your new TanStack Start app!
+# TanStack Start + Nitro + Docker + Yarn + Biome
 
-# Getting Started
+GitHub template for a full-stack React app built with [TanStack Start](https://tanstack.com/start), deployed via [Nitro](https://v3.nitro.build/), and packaged as a Docker image.
 
-To run this application:
+Use **Use this template** on GitHub (or clone the repo) to start a new project with this stack already wired up.
+
+## What's included
+
+- **TanStack Start** — React 19, file-based routing, server functions, and Vite
+- **Nitro** — Node-compatible server output for any host
+- **Yarn 4** — package manager via Corepack
+- **Biome** — linting and formatting
+- **Tailwind CSS v4** — styling
+- **Docker** — production image that runs the Nitro build (CI publishes to GHCR)
+
+## Getting Started
 
 ```bash
 yarn install
-yarn run dev
+yarn dev
 ```
 
-# Building For Production
-
-To build this application for production:
+## Building For Production
 
 ```bash
-yarn run build
+yarn build
 ```
+
+The build writes a self-contained Node server to `.output/`. Preview it with `yarn preview`, or run the server directly:
+
+```bash
+node .output/server/index.mjs
+```
+
+## Docker
+
+The `Dockerfile` expects a pre-built `.output` directory (CI runs `yarn build` first). Locally:
+
+```bash
+yarn build
+docker build -t my-app .
+docker run --rm -p 3000:3000 my-app
+```
+
+On pushes to `main` and on GitHub Releases, the Publish workflow builds the app and pushes an image to `ghcr.io/<owner>/<repo>`.
 
 ## Styling
 
@@ -32,30 +59,26 @@ If you prefer not to use Tailwind CSS:
 
 ## Linting & Formatting
 
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
-
+This project uses [Biome](https://biomejs.dev/) for linting and formatting:
 
 ```bash
-yarn run lint
-yarn run format
-yarn run check
+yarn lint
+yarn format
+yarn check
 ```
-
 
 ## Deploy with Nitro
 
 This project uses Nitro as a generic server adapter, so it can run on any Node-compatible host.
 
 ```bash
-npm run build
-node dist/server/index.mjs
+yarn build
+node .output/server/index.mjs
 ```
 
-The build output is a self-contained Node server. To deploy, push the `dist/` directory to your host (Render, Fly.io, your own VPS, etc.) and run the server command above.
+To deploy without Docker, push the `.output/` directory to your host (Render, Fly.io, your own VPS, etc.) and run the server command above.
 
 For host-specific presets (Vercel, Netlify, Cloudflare, AWS Lambda, etc.) and tuning, see https://v3.nitro.build/deploy.
-
-
 
 ## Routing
 
@@ -65,7 +88,7 @@ This project uses [TanStack Router](https://tanstack.com/router) with file-based
 
 To add a new route to your application just add a new file in the `./src/routes` directory.
 
-TanStack will automatically generate the content of the route file for you.
+TanStack will automatically generate the route tree for you. You can also regenerate it manually with `yarn generate-routes`.
 
 Now that you have two routes you can use a `Link` component to navigate between them.
 
@@ -199,9 +222,7 @@ function PeopleComponent() {
 
 Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
 
-
-
-# Learn More
+## Learn More
 
 You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
 
