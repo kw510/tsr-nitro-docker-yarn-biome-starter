@@ -1,5 +1,5 @@
 {
-  "name": "dev",
+  "name": "tsr-nitro-docker-yarn-biome-starter",
   "private": true,
   "type": "module",
   "imports": {

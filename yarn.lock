@@ -1794,32 +1794,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dev@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "dev@workspace:."
-  dependencies:
-    "@biomejs/biome": "npm:2.5.12"
-    "@tailwindcss/vite": "npm:^4.1.18"
-    "@tanstack/devtools-vite": "npm:latest"
-    "@tanstack/react-devtools": "npm:latest"
-    "@tanstack/react-router": "npm:latest"
-    "@tanstack/react-router-devtools": "npm:latest"
-    "@tanstack/react-start": "npm:latest"
-    "@tanstack/router-cli": "npm:^1.132.0"
-    "@types/node": "npm:^26.5.0"
-    "@types/react": "npm:^19.2.0"
-    "@types/react-dom": "npm:^19.2.0"
-    "@vitejs/plugin-react": "npm:^6.0.1"
-    nitro: "npm:3.0.260610-beta"
-    react: "npm:^19.2.0"
-    react-dom: "npm:^19.2.0"
-    srvx: "npm:^1.0.4"
-    tailwindcss: "npm:^4.1.18"
-    typescript: "npm:^7.0.2"
-    vite: "npm:^8.0.0"
-  languageName: unknown
-  linkType: soft
-
 "diff@npm:^8.0.4":
   version: 8.0.4
   resolution: "diff@npm:8.0.4"
@@ -2892,6 +2866,32 @@ __metadata:
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
   languageName: node
   linkType: hard
+
+"tsr-nitro-docker-yarn-biome-starter@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "tsr-nitro-docker-yarn-biome-starter@workspace:."
+  dependencies:
+    "@biomejs/biome": "npm:2.5.12"
+    "@tailwindcss/vite": "npm:^4.1.18"
+    "@tanstack/devtools-vite": "npm:latest"
+    "@tanstack/react-devtools": "npm:latest"
+    "@tanstack/react-router": "npm:latest"
+    "@tanstack/react-router-devtools": "npm:latest"
+    "@tanstack/react-start": "npm:latest"
+    "@tanstack/router-cli": "npm:^1.132.0"
+    "@types/node": "npm:^26.5.0"
+    "@types/react": "npm:^19.2.0"
+    "@types/react-dom": "npm:^19.2.0"
+    "@vitejs/plugin-react": "npm:^6.0.1"
+    nitro: "npm:3.0.260610-beta"
+    react: "npm:^19.2.0"
+    react-dom: "npm:^19.2.0"
+    srvx: "npm:^1.0.4"
+    tailwindcss: "npm:^4.1.18"
+    typescript: "npm:^7.0.2"
+    vite: "npm:^8.0.0"
+  languageName: unknown
+  linkType: soft
 
 "typescript@npm:^7.0.2":
   version: 7.0.2
